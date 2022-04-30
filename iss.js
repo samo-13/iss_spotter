@@ -11,14 +11,25 @@ const fetchMyIP = function(callback) {
   // parse and extract the IP address using JSON and then pass that through to the callback (as the second argument) if there is no error
   
   request('https://api.ipify.org?format=json', (error, response, body) => {
-
-    if (error) { // catches error
+    
+    // if error exists
+    if (error) {
       callback(error);
       return;
     }
 
+    // if non-200 status, assume server error
+    if (response.statusCode !== 200) {
+      const msg = `Status Code ${response.statusCode} when fetching IP. Response: ${body}`;
+      callback(Error(msg), null);
+      return;
+    }
+
+    // use JSON.parse to convert the JSON string into an actual object
     let ip = JSON.parse(body).ip;
-    callback(null, ip); // returns the ip
+
+    // returns the ip if no errors occur
+    callback(null, ip);
 
   });
 };
