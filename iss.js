@@ -10,13 +10,16 @@ const fetchMyIP = function(callback) {
   // pass through the error to the callback if an error occurs when requesting the IP data
   // parse and extract the IP address using JSON and then pass that through to the callback (as the second argument) if there is no error
   
-  request('https://api.ipify.org?format=json', (error, response, body) => {
+  request('https://api.ipify2.org?format=json', (error, response, body) => {
 
-    if (error) {
+    if (error) { // catches error
       callback(error);
       return;
     }
-    
+
+    let ip = JSON.parse(body).ip;
+    callback(null, ip); // returns the ip
+
   });
 };
 
