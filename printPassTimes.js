@@ -1,5 +1,3 @@
-const { nextISSTimesForMyLocation } = require('./iss_promised');
-
 const printPassTimes = function(passTimes) {
   for (let pass of passTimes) {
 
@@ -14,9 +12,4 @@ const printPassTimes = function(passTimes) {
   }
 };
 
-nextISSTimesForMyLocation()
-.then((passTimes) => {
-  printPassTimes(passTimes);
-})
-
-  
+module.exports = { printPassTimes };

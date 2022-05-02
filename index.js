@@ -1,3 +1,4 @@
+
 // ------------------------------------------------------------------------------------------------------
 // // will require and run our main fetch function
 
@@ -89,8 +90,10 @@ nextISSTimesForMyLocation((error, passTimes) => {
   }
   
   printPassTimes(passTimes);
+
 });
 
 
 
 // LHL learning exercise -- code provided 
+
