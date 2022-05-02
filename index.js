@@ -93,7 +93,5 @@ nextISSTimesForMyLocation((error, passTimes) => {
 
 });
 
-
-
 // LHL learning exercise -- code provided 
 
